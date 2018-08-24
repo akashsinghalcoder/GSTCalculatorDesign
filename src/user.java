@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class user {
 	static Manager manager=new Manager();
 	static Scanner reader = new Scanner(System.in);
+	
+	//This method helps you to calculate gst
 	public static void gstcalculator()
 	{
 		System.out.println("Welcome to gst calculator");
@@ -24,6 +26,9 @@ public class user {
 		}
 				
 	}
+	
+	
+	//You can add new category from this method
 	public static void addcategorymenu()
 	{
 		System.out.println("Enter new category to be added");
@@ -33,6 +38,8 @@ public class user {
 		manager.addcategory(categoryname, taxvalue);
 				
 	}
+	
+	//YOu can add new product from this
 	public static void addproductmenu()
 	{
 		System.out.println("Enter product to be added");
@@ -42,6 +49,8 @@ public class user {
 		manager.addproduct(productname, category);
 				
 	}
+	
+	//You can delete product from this method
 	public static void deleteproductmenu()
 	{
 		System.out.println("Enter product to be deleted");
@@ -49,6 +58,9 @@ public class user {
 		manager.deleteproduct(productname);
 				
 	}
+	
+	//You can delete particular category from this method
+	//Automatically all products related to that category will be deleted
 	public static void deletecategorymenu()
 	{
 		System.out.println("Enter category to be deleted");
@@ -56,6 +68,8 @@ public class user {
 		manager.deletewholecategory(category);
 				
 	}
+	
+	//You can change tax of particular category from here
 	public static void changetaxofcategoriesmenu()
 	{
 		System.out.println("Enter category to be changed");
@@ -65,6 +79,8 @@ public class user {
 		manager.changetaxofparticularcategory(categoryname, taxvalue);
 				
 	}
+	
+	//It sets up the menu
 	public static void settingupmenu()
 	{
 		manager.settingupInventoryManager();
