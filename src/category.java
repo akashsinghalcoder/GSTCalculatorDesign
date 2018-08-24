@@ -8,10 +8,12 @@ public class category {
 		this.taxvalue=taxvalue;
 		
 	}
+	
 	public float returntaxvalue()
 	{
 		return taxvalue;
 	}
+	
 	public void changetaxvalue(float taxvalue)
 	{
 		this.taxvalue=taxvalue;

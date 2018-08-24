@@ -5,12 +5,16 @@ import java.util.Iterator;
 public class Manager {
 	private HashMap<String,category> categories = new HashMap<String,category>();
 	private HashMap<String,SpecificCommodity> newinventory = new HashMap<String,SpecificCommodity>();
+	
+	//It sets initial categories in system
 	private void settinginitialcategories() {
 		categories.put("Furniture",new category("Furniture",5));
 		categories.put("Cosmetics",new category("Cosmetics",28));
 		categories.put("FoodGrains",new category("FoodGrains",0));
 		categories.put("Electronics",new category("Electronics",18));
 	}
+	
+	//It sets initial products related to initial categories
 	private void settingupInventoryManagerProducts()
 	{
 		newinventory.put("dal",new SpecificCommodity("dal","FoodGrains"));
@@ -30,9 +34,10 @@ public class Manager {
 	public void settingupInventoryManager()
 	{
 		settinginitialcategories();
-		settingupInventoryManagerProducts();
-		
+		settingupInventoryManagerProducts();	
 	}
+	
+	//Tax calculation
 	public float taxcalculator(String productname,float quantity,float price)
 	{
 		if(newinventory.containsKey(productname))
@@ -46,6 +51,9 @@ public class Manager {
 		}
 		
 	}
+	
+	
+	//changing tax of particular category
 	public void changetaxofparticularcategory(String category,float taxvalue)
 	{
 		if(category.equals("Cosmetics"))
@@ -54,21 +62,32 @@ public class Manager {
 		}
 		categories.put(category,new category(category,taxvalue));	
 	}
+	
+	
+	//adding new category dynamically
 	public void addcategory(String category,float taxvalue)
 	{
 		categories.put(category,new category(category,taxvalue));	
 	}
+	
+	//adding new product dynamically
 	public void addproduct(String productname,String type)
 	{
 		newinventory.put(productname,new SpecificCommodity(productname,type));
 	}
+	
+	
+	//delete product dynamically
 	public void deleteproduct(String productname)
 	{
 		newinventory.remove(productname);
 	}
+	
+	//delete category dynamically
 	public void deletewholecategory(String category)
 	{
 		categories.remove(category);
+		//deleting products related to deleted category
 		for (HashMap.Entry<String, SpecificCommodity> entry : newinventory.entrySet()) {
 		    if(entry.getValue().gettype().equalsIgnoreCase(category))
 		    {

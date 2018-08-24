@@ -2,11 +2,10 @@ import java.util.Scanner;
 
 public class user {
 	static Manager manager=new Manager();
+	static Scanner reader = new Scanner(System.in);
 	public static void gstcalculator()
 	{
 		System.out.println("Welcome to gst calculator");
-		Scanner reader = new Scanner(System.in);
-		reader.useDelimiter(System.getProperty("line.separator"));// Reading from System.in
 		System.out.println("Enter units ");
 		int units = reader.nextInt();
 		System.out.println("Enter product ");
@@ -28,7 +27,6 @@ public class user {
 	public static void addcategorymenu()
 	{
 		System.out.println("Enter new category to be added");
-		Scanner reader = new Scanner(System.in);
 		String categoryname = reader.next();
 		System.out.println("Enter tax slab for this category ");
 		float taxvalue = reader.nextFloat();
@@ -38,7 +36,6 @@ public class user {
 	public static void addproductmenu()
 	{
 		System.out.println("Enter product to be added");
-		Scanner reader = new Scanner(System.in);
 		String productname = reader.next();
 		System.out.println("Enter category");
 		String category = reader.next();
@@ -48,7 +45,6 @@ public class user {
 	public static void deleteproductmenu()
 	{
 		System.out.println("Enter product to be deleted");
-		Scanner reader = new Scanner(System.in);
 		String productname = reader.next();
 		manager.deleteproduct(productname);
 				
@@ -56,7 +52,6 @@ public class user {
 	public static void deletecategorymenu()
 	{
 		System.out.println("Enter category to be deleted");
-		Scanner reader = new Scanner(System.in);
 		String category = reader.next();
 		manager.deletewholecategory(category);
 				
@@ -64,7 +59,6 @@ public class user {
 	public static void changetaxofcategoriesmenu()
 	{
 		System.out.println("Enter category to be changed");
-		Scanner reader = new Scanner(System.in);
 		String categoryname = reader.next();
 		System.out.println("Enter tax slab for this category ");
 		float taxvalue = reader.nextFloat();
@@ -83,38 +77,29 @@ public class user {
 			System.out.println("Press 4 for deleting product");
 			System.out.println("Press 5 for deleting category");
 			System.out.println("Press 6 for changing tax of categories");
-			Scanner reader = new Scanner(System.in);
+			
 			int status=reader.nextInt();
 			switch(status)
 			{
-			case 1:gstcalculator();
+				case 1:gstcalculator();
 					break;
-			case 2:addcategorymenu();
-			break;
-			case 3:addproductmenu();
-			break;
-			case 4:deleteproductmenu();
-			break;
-			case 5:deletecategorymenu();
-			break;
-			case 6:changetaxofcategoriesmenu();
-			break;
-			case 0:System.out.println("The End");
-			return;
+				case 2:addcategorymenu();
+					break;
+				case 3:addproductmenu();
+					break;
+				case 4:deleteproductmenu();
+					break;
+				case 5:deletecategorymenu();
+					break;
+				case 6:changetaxofcategoriesmenu();
+					break;
+				case 0:System.out.println("The End");
+					return;
 			
 			}
-			}
+		}
 	}
 	public static void main(String[] args) {
-		settingupmenu();	
-			
-		}
-		
-		
-		
-		
-		
-
-	
-
+		settingupmenu();			
+	}
 }
