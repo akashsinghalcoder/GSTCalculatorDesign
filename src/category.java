@@ -1,22 +1,22 @@
 
-public class category {
+public class category extends tax {
 	private String category;
-	private float taxvalue;
+	
 	category(String category,float taxvalue)
 	{
 		this.category=category;
-		this.taxvalue=taxvalue;
+		this.setTaxvalue(taxvalue);
 		
 	}
 	
 	public float returntaxvalue()
 	{
-		return taxvalue;
+		return getTaxvalue();
 	}
 	
 	public void changetaxvalue(float taxvalue)
 	{
-		this.taxvalue=taxvalue;
+		this.setTaxvalue(taxvalue);
 	}
 
 }
